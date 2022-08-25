@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "jest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +14,9 @@
     "axios": "^0.27.2",
     "dotenv": "^16.0.1",
     "fastify": "^4.5.2"
+  },
+  "devDependencies": {
+    "jest": "^29.0.0",
+    "node-mocks-http": "^1.11.0"
   }
 }
