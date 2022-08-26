@@ -30,6 +30,7 @@ describe('weatherController', () => {
     const res = createResponse();
     getWeatherByCity.mockResolvedValue(weatherMock);
     await getWeatherByCityName(req, res);
+    expect(getWeatherByCity).toHaveBeenCalledWith('Rio Cuarto')
     expect(res.statusCode).toBe(200);
   });
 
