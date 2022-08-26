@@ -1,4 +1,5 @@
 const { getWeatherByCity } = require('../services/getWeatherByCity');
+const { formatResponse } = require('../util/fortmatResponse');
 
 exports.getWeatherByCityName = async (req, reply) => {
   try {
@@ -6,13 +7,15 @@ exports.getWeatherByCityName = async (req, reply) => {
 
     if (city) {
       const weather = await getWeatherByCity(city);
-      return reply.code(200).send(weather);
+      const responseFormated = formatResponse(weather);
+      return reply.code(200).send(responseFormated);
     }
 
     const weather = await getWeatherByCity('Rio Cuarto');
-    return reply.code(200).send(weather);
+    const responseFormated = formatResponse(weather);
+    return reply.code(200).send(responseFormated);
   }
   catch (err) {
-    reply.code(500).send(err);
+    reply.send(err);
   }
 };
